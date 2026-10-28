@@ -51,7 +51,15 @@ img { display: block; max-width: 100%; }
 .dots button.on::after { background: var(--red); }
 
 /* ---------- Cards ---------- */
-.row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: thin; scroll-snap-type: x proximity; }
+.row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: #3a3a4d transparent; }
+/* Safari / eski brauzerlar */
+@supports not (scrollbar-color: auto) {
+  .row::-webkit-scrollbar { height: 6px; }
+  .row::-webkit-scrollbar-track { background: transparent; }
+  .row::-webkit-scrollbar-thumb { background: #3a3a4d; border-radius: 3px; }
+  .row::-webkit-scrollbar-thumb:hover { background: #55556b; }
+}
+.row:hover { scrollbar-color: #55556b transparent; }
 .row .card { flex: 0 0 170px; scroll-snap-align: start; min-width: 0; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 20px; }
 .card { display: block; min-width: 0; }
