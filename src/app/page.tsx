@@ -28,10 +28,10 @@ export default function Home() {
       <Hero items={trending.slice(0, 6)} />
       <div className="page">
         {error && <p className="muted">TMDB xatosi: {error}</p>}
-        <MovieRow title="Trending Today" items={trending.map((m) => toItem(m))} />
-        <MovieRow title="Popular Movies" items={popular.map((m) => toItem(m, "movie"))} />
-        <MovieRow title="Top Rated" items={topRated.map((m) => toItem(m, "movie"))} />
-        <MovieRow title="Popular TV Shows" items={tv.map((m) => toItem(m, "tv"))} />
+        <MovieRow title="Trending Today" href="/discover" items={trending.map((m) => toItem(m))} />
+        <MovieRow title="Popular Movies" href="/discover?type=movie" items={popular.map((m) => toItem(m, "movie"))} />
+        <MovieRow title="Top Rated" href="/discover?type=movie&sort=vote_average.desc" items={topRated.map((m) => toItem(m, "movie"))} />
+        <MovieRow title="Popular TV Shows" href="/discover?type=tv" items={tv.map((m) => toItem(m, "tv"))} />
       </div>
     </main>
   );

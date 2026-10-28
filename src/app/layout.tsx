@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import Navbar from "@/components/Navbar";
+import TrailerModal from "@/components/TrailerModal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body>
           <Navbar />
           {children}
+          <TrailerModal />
         </body>
       </html>
     </ClerkProvider>
